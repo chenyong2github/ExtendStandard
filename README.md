@@ -6,7 +6,6 @@ http://blog.chenyong.me/2018/07/17/pbr/
 
 Screenshots:
 
-![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/uml.png)
 ![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/12.jpg)
 ![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/14.jpg)
 ![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/18.jpg)
