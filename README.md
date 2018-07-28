@@ -4,6 +4,8 @@
 标准化有利于简化美术流程，但是只使用标准PBR达不到具体项目的渲染需求，因为游戏风格差异化大多来自对渲染的自定义......
 http://blog.chenyong.me/2018/07/17/pbr/
 
+Screenshots:
+
 ![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/uml.png)
 ![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/12.jpg)
 ![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/14.jpg)
