@@ -4,7 +4,7 @@
 Material:
   serializedVersion: 6
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: bunny
   m_Shader: {fileID: 4800000, guid: 9efa00a1d2c21264facae2ffb78a4a65, type: 3}
@@ -77,11 +77,11 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Power: 100
+    - _Power: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _ThicknessScale: 2
+    - _ThicknessScale: 1.8
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
