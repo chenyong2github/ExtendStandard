@@ -11,4 +11,5 @@ Screenshots:
 ![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/18.jpg)
 ![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/15.jpg)
 ![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/16.jpg)
+![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/fur.jpg)
 ![](https://raw.githubusercontent.com/chenyong2github/ExtendStandard/master/Screenshots/PBR.jpg)
