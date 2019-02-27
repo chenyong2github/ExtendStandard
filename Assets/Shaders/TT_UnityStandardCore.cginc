@@ -397,13 +397,18 @@ struct VertexOutputForwardBase
     UNITY_VERTEX_OUTPUT_STEREO
 };
 
-VertexOutputForwardBase vertForwardBase (VertexInput v)
+VertexOutputForwardBase vertForwardBase(VertexInput v, half FUR_OFFSET = 0)
 {
     UNITY_SETUP_INSTANCE_ID(v);
     VertexOutputForwardBase o;
     UNITY_INITIALIZE_OUTPUT(VertexOutputForwardBase, o);
     UNITY_TRANSFER_INSTANCE_ID(v, o);
     UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(o);
+
+#if _FUR
+    half3 direction = lerp(v.normal, _Gravity * _GravityStrength + v.normal * (1 - _GravityStrength), FUR_OFFSET);
+	v.vertex.xyz += direction * _FurLength * FUR_OFFSET;
+#endif 
 
     float4 posWorld = mul(unity_ObjectToWorld, v.vertex);
     #if UNITY_REQUIRE_FRAG_WORLDPOS
@@ -450,7 +455,7 @@ VertexOutputForwardBase vertForwardBase (VertexInput v)
     return o;
 }
 
-half4 fragForwardBaseInternal (VertexOutputForwardBase i)
+half4 fragForwardBaseInternal (VertexOutputForwardBase i, half FUR_OFFSET = 0)
 {
     UNITY_APPLY_DITHER_CROSSFADE(i.pos.xy);
 
@@ -494,10 +499,23 @@ half4 fragForwardBaseInternal (VertexOutputForwardBase i)
     c.rgb += Emission(i.tex.xy);
 
     UNITY_APPLY_FOG(i.fogCoord, c.rgb);
-    return OutputForward (c, s.alpha);
+
+#if _FUR
+    fixed alpha = tex2D(_LayerTex, TRANSFORM_TEX(i.tex.xy, _LayerTex)).r;
+	alpha = step(lerp(_CutoffStart, _CutoffEnd, FUR_OFFSET), alpha);
+
+    c.a = 1 - FUR_OFFSET*FUR_OFFSET;
+	c.a += dot(-s.eyeVec, s.normalWorld) - _EdgeFade;
+	c.a = max(0, c.a);
+	c.a *= alpha;
+
+    return c;
+#endif
+
+    return OutputForward(c, s.alpha);
 }
 
-half4 fragForwardBase (VertexOutputForwardBase i) : SV_Target   // backward compatibility (this used to be the fragment entry function)
+half4 fragForwardBase(VertexOutputForwardBase i) : SV_Target // backward compatibility (this used to be the fragment entry function)
 {
     return fragForwardBaseInternal(i);
 }
